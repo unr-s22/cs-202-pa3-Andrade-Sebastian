@@ -35,10 +35,31 @@ public:
         cents = newCents;
     }
     
+    //overloads of all the relational operators (<,>,⇐,>=,!=,==)
     bool operator<(const Money &rhs) const{
         return cents < rhs.cents;
     }
 
+    bool operator>(const Money &rhs) const{
+        return cents > rhs.cents;
+    }
+
+    bool operator<=(const Money &rhs) const{
+        return cents <= rhs.cents;
+    }
+
+    bool operator>=(const Money &rhs) const{
+        return cents >= rhs.cents;
+    }
+
+    bool operator!=(const Money &rhs) const{
+        return cents != rhs.cents;
+    }
+
+    bool operator==(const Money &rhs) const{
+        return cents == rhs.cents;
+    }
+    
     Money operator-(const Money& m){
         Money money;
         money.dollars = this->dollars - m.dollars;
@@ -55,7 +76,7 @@ public:
 
     //overload of << including $ printout
     friend std::ostream &operator<< (std::ostream &os, const Money &money){
-        os << "$" << money.cents * 0.01;
+        os << "$" << money.dollars << "." << money.cents;
         return os;
     }
 };

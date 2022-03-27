@@ -14,6 +14,9 @@ std::vector <int> deposits;
 
 Money m(100,10);
 
+
+
+
 std::cout << m << std::endl;
 
 //auto sum_deposits = std::accumulate(deposits.begin(), deposits.end(),m);
