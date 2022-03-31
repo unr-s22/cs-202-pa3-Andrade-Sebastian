@@ -76,7 +76,7 @@ public:
 
     //overload of << including $ printout
     friend std::ostream &operator<< (std::ostream &os, const Money &money){
-        os << "$" << money.dollars << "." << money.cents;
+        os << "$" << money.dollars << "." << money.cents <<std::endl;
         return os;
     }
 };

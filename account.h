@@ -1,3 +1,4 @@
+#endif
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 #include "money.h"
@@ -12,7 +13,7 @@ public:
     }
 
     bool makeDeposit(int deposit){
-        
+
         std::vector<Money> deposit;
     }
 
@@ -41,3 +42,5 @@ public:
 
 
 #endif
+
+
