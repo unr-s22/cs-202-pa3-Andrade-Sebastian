@@ -1,43 +1,43 @@
-#include "money.h"
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
+#include "money.h"
+#include <iostream>
 #include <vector>
-#include <numeric>
 
-class Account {
+class Account : public Money {
+
 public:
-    std::vector<int> centsVector{23};
-    std::vector<int> dollarsVector{300};
-
-
-    void deposit(int dollars, int cents){
-        centsVector.push_back(cents);
-        dollarsVector.push_back(dollars);
-    }
-    int addDepositC(){
-        int cent = (std::accumulate(centsVector.begin(),centsVector.end(),0));
-
-        return cent;
-    }
-    int addDepositD(){
-        int dollar = (std::accumulate(dollarsVector.begin(),dollarsVector.end(),0));
-
-        return dollar;
-    }
-    auto withdrawD(int dollars){
-        int dollar = (std::accumulate(dollarsVector.begin(),dollarsVector.end(),0) - dollars);
-
-        return dollar;
-
+    Account(){
+        Money w{Account{}};
     }
 
-    auto withdrawC(int cents) {
-        int cent = (std::accumulate(centsVector.begin(), centsVector.end(), 0) - cents);
+    bool makeDeposit(int deposit){
 
-        return cent;
+        std::vector<Money> deposit;
     }
+
+    bool makeWithdrawals(int withdrawal){
+        std::vector<Money> withdrawal;
+    }
+
+
+    friend std::ostream &operator<< (std::ostream &os, const Account &account){
+        os << "Account Details" << std::endl;
+        os << "-----------------------------" << std::endl;
+        os << "Current Balance: $"  << std::endl;
+        os << "-----------------------------" << std::endl;
+        os << "Number of Deposits: " << std::endl;
+        os << "------------------" << std::endl;
+        os << "Number of Withdrawals:" << std::endl;
+        os << "------------------" << std::endl;
+
+        return os;
+    }
+
+
 
 
 };
+
 
 #endif
