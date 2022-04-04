@@ -1,8 +1,5 @@
 #include "account.h"
 #include "money.h"
-#include <functional>
-#include <numeric>
-#include <vector>
 
 //---Git Commands---
 //git pull origin master -first to get updated work changes
@@ -10,20 +7,16 @@
 //git log
 
 int main(){
-    std::vector <int> deposits;
 
-    Money m(100,10);
-    Money n(100,10);
-
-
-
-
-
-    std::cout << m << std::endl;
-
-//auto sum_deposits = std::accumulate(deposits.begin(), deposits.end(),m);
-    auto sum_deposits = std::accumulate(deposits.begin(), deposits.end(),m);
-
+    Account account(Money(300, 23));
+    std::cout << account.getBalance() << std::endl;
+    account.makeDeposit(Money(200, 00));
+    account.makeDeposit(Money(300, 24));
+    account.makeDeposit(Money(501, 22));
+    std::cout << account.getBalance() << std::endl;
+    account.makeWithdrawals(Money(300, 10));
+    account.makeWithdrawals(Money(201, 34));
+    std::cout << account.getBalance() << std::endl;
     return 0;
-
 }
+
